@@ -11,12 +11,15 @@ import { logger } from 'src/lib/logger'
 
 export const handler = createGraphQLHandler({
   getCurrentUser,
-  loggerConfig: { logger, options: {} },
+  loggerConfig: {
+    logger,
+    options: { operationName: true, query: true, requestId: true },
+  },
   directives,
   sdls,
   services,
   cors: {
-    origin: 'd2y24ev7gslziu.cloudfront.net',
+    origin: 'd3j2lmbogvczkg.cloudfront.net',
     credentials: true,
   },
   onException: () => {
